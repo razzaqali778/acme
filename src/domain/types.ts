@@ -19,10 +19,20 @@ export interface DiscountPolicy {
 export interface DeliveryFeePolicy {
   calculateFee(_discountedSubtotalCents: number, _itemCount: number): number;
 }
+export interface DeliveryTier {
+  upperBoundExclusiveCents: number;
+  feeCents: number;
+}
 
 export interface BasketBreakdown {
   itemSubtotalCents: number;
   discountCents: number;
   deliveryFeeCents: number;
   grandTotalCents: number;
+}
+
+export interface AcmeSystem {
+  readonly catalog: ProductCatalog;
+  readonly deliveryPolicy: DeliveryFeePolicy;
+  readonly discountPolicy: DiscountPolicy;
 }

@@ -1,10 +1,5 @@
-import type { DeliveryFeePolicy } from "../../domain/types.js";
+import type { DeliveryFeePolicy, DeliveryTier } from "../../domain/types.js";
 import { assert } from "../../utils/assert.js";
-
-export interface DeliveryTier {
-  upperBoundExclusiveCents: number;
-  feeCents: number;
-}
 
 export class TieredDeliveryFeePolicy implements DeliveryFeePolicy {
   private readonly tiers: DeliveryTier[];

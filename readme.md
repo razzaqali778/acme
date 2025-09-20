@@ -252,24 +252,6 @@ npm run typecheck
 
 ## 🧭 Diagrams
 
-### Runtime Flow
-
-```mermaid
-flowchart TD
-  A[Start: qtyByCode] --> B[Subtotal: sum(qty * unitPriceCents)]
-  B --> C{R01 pairs?}
-  C -- No --> D1[discount=0]
-  C -- Yes --> D2[pairs=floor(R01/2)\ndiscount=pairs*round(R01/2)]
-  D1 --> E[discountedSubtotal = max(0, subtotal - discount)]
-  D2 --> E
-  E --> F{itemCount > 0?}
-  F -- No --> G1[delivery=0]
-  F -- Yes --> G2[Tiers:<50→4.95,<90→2.95,≥90→0]
-  G1 --> H[total=discountedSubtotal+delivery]
-  G2 --> H
-  H --> I[Return breakdown]
-```
-
 ### Architecture (DI + Strategies)
 
 ```mermaid
